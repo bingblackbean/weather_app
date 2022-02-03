@@ -1,0 +1,22 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+
+parts:
+  - caption: Reqest Data and Transform
+    # numbered: True  # Only applies to chapters in Part 1.
+    chapters:
+    - file: steps/query_api.ipynb
+    - file: steps/query_api_sorted.ipynb
+  - caption: Access to DataBase
+    chapters:
+    - file: steps/db_access_zh.ipynb
+  - caption: Handle More Cities
+    chapters:
+    - file: steps/multi_cities.ipynb
+    - file: steps/multi_cities_async.ipynb
+  - caption: Present Result
+    chapters:
+    - file: steps/plot_data.ipynb

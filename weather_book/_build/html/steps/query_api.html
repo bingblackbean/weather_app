@@ -1,0 +1,822 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Collection &#8212; Weather Dashboard</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Clean the Code" href="query_api_sorted.html" />
+    <link rel="prev" title="Introduction" href="../intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/data_amber.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Weather Dashboard</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reqest Data and Transform
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Data Collection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="query_api_sorted.html">
+   Clean the Code
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Access to DataBase
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="db_access_zh.html">
+   连接数据库SQLite
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Present Result
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="plot_data.html">
+   Present Data in Plotly
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/steps/query_api.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fsteps/query_api.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/steps/query_api.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#send-request">
+   Send Request
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#parse-result">
+   Parse Result
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transform-data">
+   Transform Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#string-to-datetime">
+     string to datetime
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#int-to-timedelta">
+     int to timedelta
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#from-city-name-to-geolocation">
+   From City Name to Geolocation
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Data Collection</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#send-request">
+   Send Request
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#parse-result">
+   Parse Result
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transform-data">
+   Transform Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#string-to-datetime">
+     string to datetime
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#int-to-timedelta">
+     int to timedelta
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#from-city-name-to-geolocation">
+   From City Name to Geolocation
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="data-collection">
+<h1>Data Collection<a class="headerlink" href="#data-collection" title="Permalink to this headline">¶</a></h1>
+<p>We are using free open api to get the data.A credit to: <a class="reference external" href="https://www.7timer.info/">https://www.7timer.info/</a>. It provide API to get the weather forecast infomation by given geolocation.
+For example, inputting shanghai will get unique endpoint: <a class="reference external" href="https://www.7timer.info/bin/api.pl?lon=121.474&amp;lat=31.23&amp;product=civil&amp;output=json">https://www.7timer.info/bin/api.pl?lon=121.474&amp;lat=31.23&amp;product=civil&amp;output=json</a></p>
+<p>Weather forecast information for next few days is returned in this endpoint.
+By default,CIVIL product is used to present the result.</p>
+<div class="section" id="send-request">
+<h2>Send Request<a class="headerlink" href="#send-request" title="Permalink to this headline">¶</a></h2>
+<p>If we want to use Python to get response from url, we have to use some packages, like requests.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>! pip install requests
+
+</pre></div>
+</div>
+<p><a class="reference external" href="https://docs.python-requests.org/en/latest/">https://docs.python-requests.org/en/latest/</a>
+jump to quickstart of document, and start coding.
+<a class="reference external" href="https://docs.python-requests.org/en/latest/user/quickstart/">https://docs.python-requests.org/en/latest/user/quickstart/</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://www.7timer.info/bin/api.pl?lon=121.474&amp;lat=31.23&amp;product=civil&amp;output=json&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">encoding</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Response [200]&gt;
+UTF-8
+&lt;class &#39;str&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>It is time to parase the response contents to python object, like dict. Keep in mind, by default, requests return the response in json format. Python is integrated standard json package, so we just need to import it and loads the contents.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_j</span><span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">text_j</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;dict&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let us have a glance at text_j dict.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_j</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;product&#39;, &#39;init&#39;, &#39;dataseries&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_j</span><span class="p">[</span><span class="s1">&#39;product&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;civil&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_j</span><span class="p">[</span><span class="s1">&#39;init&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;2022020218&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_j</span><span class="p">[</span><span class="s1">&#39;dataseries&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># https://github.com/Yeqzids/7timer-issues/wiki/Wiki</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;timepoint&#39;: 3,
+ &#39;cloudcover&#39;: 9,
+ &#39;lifted_index&#39;: 15,
+ &#39;prec_type&#39;: &#39;none&#39;,
+ &#39;prec_amount&#39;: 1,
+ &#39;temp2m&#39;: 4,
+ &#39;rh2m&#39;: &#39;87%&#39;,
+ &#39;wind10m&#39;: {&#39;direction&#39;: &#39;NE&#39;, &#39;speed&#39;: 3},
+ &#39;weather&#39;: &#39;cloudynight&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="parse-result">
+<h2>Parse Result<a class="headerlink" href="#parse-result" title="Permalink to this headline">¶</a></h2>
+<p>We are noted that most useful information is kept in “dataseries” element. For this type of data (list of dict), we suggest to use DataFrame to parse it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weather_info</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">text_j</span><span class="p">[</span><span class="s1">&#39;dataseries&#39;</span><span class="p">])</span>
+<span class="n">weather_info</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>timepoint</th>
+      <th>cloudcover</th>
+      <th>lifted_index</th>
+      <th>prec_type</th>
+      <th>prec_amount</th>
+      <th>temp2m</th>
+      <th>rh2m</th>
+      <th>wind10m</th>
+      <th>weather</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3</td>
+      <td>9</td>
+      <td>15</td>
+      <td>none</td>
+      <td>1</td>
+      <td>4</td>
+      <td>87%</td>
+      <td>{'direction': 'NE', 'speed': 3}</td>
+      <td>cloudynight</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>6</td>
+      <td>9</td>
+      <td>15</td>
+      <td>rain</td>
+      <td>1</td>
+      <td>4</td>
+      <td>69%</td>
+      <td>{'direction': 'NE', 'speed': 3}</td>
+      <td>lightrainday</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>9</td>
+      <td>9</td>
+      <td>15</td>
+      <td>none</td>
+      <td>1</td>
+      <td>5</td>
+      <td>55%</td>
+      <td>{'direction': 'NE', 'speed': 3}</td>
+      <td>cloudyday</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>12</td>
+      <td>9</td>
+      <td>15</td>
+      <td>none</td>
+      <td>1</td>
+      <td>5</td>
+      <td>52%</td>
+      <td>{'direction': 'NE', 'speed': 3}</td>
+      <td>cloudyday</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>15</td>
+      <td>9</td>
+      <td>15</td>
+      <td>rain</td>
+      <td>1</td>
+      <td>5</td>
+      <td>61%</td>
+      <td>{'direction': 'NE', 'speed': 3}</td>
+      <td>lightrainday</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="transform-data">
+<h2>Transform Data<a class="headerlink" href="#transform-data" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="string-to-datetime">
+<h3>string to datetime<a class="headerlink" href="#string-to-datetime" title="Permalink to this headline">¶</a></h3>
+<p>“init” datetime is quite important, but it is returned as str. It is good practice to convert it to datatime. Since we decide to use DataFrame to parse raw text, consistently, we are using pd.to_datetime function rather than datetime package.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start_time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">text_j</span><span class="p">[</span><span class="s1">&#39;init&#39;</span><span class="p">],</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">%H&#39;</span><span class="p">)</span>
+<span class="n">start_time</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Timestamp(&#39;2022-02-02 18:00:00&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="int-to-timedelta">
+<h3>int to timedelta<a class="headerlink" href="#int-to-timedelta" title="Permalink to this headline">¶</a></h3>
+<p>timepoint column is recorded as “next N” hours from init time, so we can reverse them back to real timestamps.</p>
+<ol class="simple">
+<li><p>convert int to timedelta</p></li>
+<li><p>shift init time by using each timedelta</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># convert timepoint to timestamp</span>
+<span class="n">weather_info</span><span class="p">[</span><span class="s1">&#39;timepoint&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_timedelta</span><span class="p">(</span><span class="n">weather_info</span><span class="p">[</span><span class="s1">&#39;timepoint&#39;</span><span class="p">],</span><span class="n">unit</span><span class="o">=</span><span class="s1">&#39;h&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weather_info</span><span class="p">[</span><span class="s1">&#39;timestamp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">start_time</span><span class="o">+</span> <span class="n">weather_info</span><span class="p">[</span><span class="s1">&#39;timepoint&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weather_info</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>timepoint</th>
+      <th>cloudcover</th>
+      <th>lifted_index</th>
+      <th>prec_type</th>
+      <th>prec_amount</th>
+      <th>temp2m</th>
+      <th>rh2m</th>
+      <th>wind10m</th>
+      <th>weather</th>
+      <th>timestamp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0 days 03:00:00</td>
+      <td>9</td>
+      <td>15</td>
+      <td>none</td>
+      <td>1</td>
+      <td>4</td>
+      <td>87%</td>
+      <td>{'direction': 'NE', 'speed': 3}</td>
+      <td>cloudynight</td>
+      <td>2022-02-02 21:00:00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0 days 06:00:00</td>
+      <td>9</td>
+      <td>15</td>
+      <td>rain</td>
+      <td>1</td>
+      <td>4</td>
+      <td>69%</td>
+      <td>{'direction': 'NE', 'speed': 3}</td>
+      <td>lightrainday</td>
+      <td>2022-02-03 00:00:00</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0 days 09:00:00</td>
+      <td>9</td>
+      <td>15</td>
+      <td>none</td>
+      <td>1</td>
+      <td>5</td>
+      <td>55%</td>
+      <td>{'direction': 'NE', 'speed': 3}</td>
+      <td>cloudyday</td>
+      <td>2022-02-03 03:00:00</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0 days 12:00:00</td>
+      <td>9</td>
+      <td>15</td>
+      <td>none</td>
+      <td>1</td>
+      <td>5</td>
+      <td>52%</td>
+      <td>{'direction': 'NE', 'speed': 3}</td>
+      <td>cloudyday</td>
+      <td>2022-02-03 06:00:00</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0 days 15:00:00</td>
+      <td>9</td>
+      <td>15</td>
+      <td>rain</td>
+      <td>1</td>
+      <td>5</td>
+      <td>61%</td>
+      <td>{'direction': 'NE', 'speed': 3}</td>
+      <td>lightrainday</td>
+      <td>2022-02-03 09:00:00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="from-city-name-to-geolocation">
+<h2>From City Name to Geolocation<a class="headerlink" href="#from-city-name-to-geolocation" title="Permalink to this headline">¶</a></h2>
+<p>what if we want to get weather info by inputing the city name? We have to get the geolocation (longitude and latitude) from city name. Luckily, there are multiple wheels for this and geopy is one of them.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">geopy</span>
+</pre></div>
+</div>
+<p>***More info about geopy: ***
+<a class="reference external" href="https://geopy.readthedocs.io/en/stable/">https://geopy.readthedocs.io/en/stable/</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">geopy.geocoders</span> <span class="kn">import</span> <span class="n">Nominatim</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">geolocator</span> <span class="o">=</span> <span class="n">Nominatim</span><span class="p">(</span><span class="n">user_agent</span><span class="o">=</span><span class="s1">&#39;baidu&#39;</span><span class="p">)</span>
+<span class="n">location</span> <span class="o">=</span> <span class="n">geolocator</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="s2">&quot;shanghai&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">location</span><span class="o">.</span><span class="n">address</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">((</span><span class="n">location</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span> <span class="n">location</span><span class="o">.</span><span class="n">longitude</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>上海市, 黄浦区, 上海市, 200001, 中国
+(31.2322758, 121.4692071)
+</pre></div>
+</div>
+</div>
+</div>
+<p>So far, we know how to request the weather info by inputing the city name step by step. The codes shall be sorted somehow before we move to next functionality design.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "dash"
+        },
+        kernelOptions: {
+            kernelName: "dash",
+            path: "./steps"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'dash'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Introduction</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="query_api_sorted.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Clean the Code</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By BingBlackBean<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
