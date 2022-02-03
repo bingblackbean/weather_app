@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Data Collection &#8212; Weather Dashboard</title>
+    <title>数据获取 &#8212; Weather Dashboard</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -51,6 +51,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Clean the Code" href="query_api_sorted.html" />
+    <link rel="prev" title="Introduction" href="../intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -99,9 +101,9 @@
   数据获取（ETL）
  </span>
 </p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="query_api_zh.html">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    数据获取
   </a>
  </li>
@@ -175,7 +177,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/steps/query_api.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/steps/query_api_zh.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -195,7 +197,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fsteps/query_api.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fsteps/query_api_zh.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -216,7 +218,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/steps/query_api.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/steps/query_api_zh.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -239,35 +241,40 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#send-request">
-   Send Request
+  <a class="reference internal nav-link" href="#request">
+   发生请求Request
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#parse-result">
-   Parse Result
+  <a class="reference internal nav-link" href="#id2">
+   解析数据
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#transform-data">
-   Transform Data
+  <a class="reference internal nav-link" href="#id3">
+   数据变换
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#string-to-datetime">
-     string to datetime
+    <a class="reference internal nav-link" href="#id4">
+     字符串转时间
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#int-to-timedelta">
-     int to timedelta
+    <a class="reference internal nav-link" href="#inttimedelta">
+     int转timedelta
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#from-city-name-to-geolocation">
-   From City Name to Geolocation
+  <a class="reference internal nav-link" href="#id5">
+   从城市名获取地理位置
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   小结
   </a>
  </li>
 </ul>
@@ -280,7 +287,7 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Data Collection</h1>
+                <h1>数据获取</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -291,35 +298,40 @@
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#send-request">
-   Send Request
+  <a class="reference internal nav-link" href="#request">
+   发生请求Request
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#parse-result">
-   Parse Result
+  <a class="reference internal nav-link" href="#id2">
+   解析数据
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#transform-data">
-   Transform Data
+  <a class="reference internal nav-link" href="#id3">
+   数据变换
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#string-to-datetime">
-     string to datetime
+    <a class="reference internal nav-link" href="#id4">
+     字符串转时间
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#int-to-timedelta">
-     int to timedelta
+    <a class="reference internal nav-link" href="#inttimedelta">
+     int转timedelta
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#from-city-name-to-geolocation">
-   From City Name to Geolocation
+  <a class="reference internal nav-link" href="#id5">
+   从城市名获取地理位置
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   小结
   </a>
  </li>
 </ul>
@@ -331,22 +343,21 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="data-collection">
-<h1>Data Collection<a class="headerlink" href="#data-collection" title="Permalink to this headline">¶</a></h1>
-<p>We are using free open api to get the data.A credit to: <a class="reference external" href="https://www.7timer.info/">https://www.7timer.info/</a>. It provide API to get the weather forecast infomation by given geolocation.
-For example, inputting shanghai will get unique endpoint: <a class="reference external" href="https://www.7timer.info/bin/api.pl?lon=121.474&amp;lat=31.23&amp;product=civil&amp;output=json">https://www.7timer.info/bin/api.pl?lon=121.474&amp;lat=31.23&amp;product=civil&amp;output=json</a></p>
-<p>Weather forecast information for next few days is returned in this endpoint.
-By default,CIVIL product is used to present the result.</p>
-<div class="section" id="send-request">
-<h2>Send Request<a class="headerlink" href="#send-request" title="Permalink to this headline">¶</a></h2>
-<p>If we want to use Python to get response from url, we have to use some packages, like requests.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>! pip install requests
-
-</pre></div>
-</div>
-<p><a class="reference external" href="https://docs.python-requests.org/en/latest/">https://docs.python-requests.org/en/latest/</a>
-jump to quickstart of document, and start coding.
-<a class="reference external" href="https://docs.python-requests.org/en/latest/user/quickstart/">https://docs.python-requests.org/en/latest/user/quickstart/</a></p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1>数据获取<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>为了能够获得实时数据，我们采用调用网上的开源API来获取。一贯的，我不推荐采用爬虫获取数据。</p>
+<p>感谢国内大神的提供：<a class="reference external" href="https://www.7timer.info/">https://www.7timer.info/</a>.</p>
+<p>通过这个网站，我们可以输入地理位置（纬度和经度）来获取未来的天气预测。
+比如，对于上海来说，它的入口地址为： <a class="reference external" href="https://www.7timer.info/bin/api.pl?lon=121.474&amp;lat=31.23&amp;product=civil&amp;output=json">https://www.7timer.info/bin/api.pl?lon=121.474&amp;lat=31.23&amp;product=civil&amp;output=json</a></p>
+<p><em><strong>需要说明的是： 这个网站提供了多个产品，用于查询天气信息，最常用的就是民用 - CIVIL，如果你有需要就可以使用其他API获取更多信息</strong></em></p>
+<div class="section" id="request">
+<h2>发生请求Request<a class="headerlink" href="#request" title="Permalink to this headline">¶</a></h2>
+<p>对一个网站的API获取信息的方式就是发送请求，有超级多的模块可以帮你完成这个任务，最常用的就是requests。这个几乎是鼻祖级别的，其他的无非是打包一些新特色。</p>
+<p>首先我们需要安装requests， 使用pip即可。</p>
+<p><em><strong>同样需要注意的是：不能拼错，记得新闻里面提到过有黑客采用障眼法，弄了一个以假乱真的requests 包</strong></em></p>
+<p><code class="docutils literal notranslate"><span class="pre">!</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">requests</span></code></p>
+<p>对于requests 包（任何一个包），查看他们的quickstart就可以实战了。</p>
+<p><a class="reference external" href="https://docs.python-requests.org/en/latest/user/quickstart/">https://docs.python-requests.org/en/latest/user/quickstart/</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
@@ -378,7 +389,9 @@ UTF-8
 </div>
 </div>
 </div>
-<p>It is time to parase the response contents to python object, like dict. Keep in mind, by default, requests return the response in json format. Python is integrated standard json package, so we just need to import it and loads the contents.</p>
+<p>对于响应的数据，我们需要把它解析成比较方便处理的python对象，比如dict或者更高级的DataFrame。</p>
+<p>默认情况下，requests 返回的是json格式。</p>
+<p>Python自带有json模块，可以帮助我们通过loads 转换为其他dict。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
@@ -399,7 +412,7 @@ UTF-8
 </div>
 </div>
 </div>
-<p>Let us have a glance at text_j dict.</p>
+<p>我们可以查看一下text_j的内容</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_j</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
@@ -439,8 +452,6 @@ UTF-8
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_j</span><span class="p">[</span><span class="s1">&#39;dataseries&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="c1"># https://github.com/Yeqzids/7timer-issues/wiki/Wiki</span>
 </pre></div>
 </div>
 </div>
@@ -451,7 +462,7 @@ UTF-8
  &#39;prec_type&#39;: &#39;none&#39;,
  &#39;prec_amount&#39;: 0,
  &#39;temp2m&#39;: 5,
- &#39;rh2m&#39;: &#39;50%&#39;,
+ &#39;rh2m&#39;: &#39;54%&#39;,
  &#39;wind10m&#39;: {&#39;direction&#39;: &#39;NE&#39;, &#39;speed&#39;: 3},
  &#39;weather&#39;: &#39;cloudyday&#39;}
 </pre></div>
@@ -459,9 +470,10 @@ UTF-8
 </div>
 </div>
 </div>
-<div class="section" id="parse-result">
-<h2>Parse Result<a class="headerlink" href="#parse-result" title="Permalink to this headline">¶</a></h2>
-<p>We are noted that most useful information is kept in “dataseries” element. For this type of data (list of dict), we suggest to use DataFrame to parse it.</p>
+<div class="section" id="id2">
+<h2>解析数据<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>我们注意到最有用的信息包含在dataseries元素中，对于这种list of dict格式的数据，我们建议采用DataFrame 来解析，应为它很像excel一个表格的内容。</p>
+<p><em><strong>关于每个字段的含义，可以参考 <a class="reference external" href="https://github.com/Yeqzids/7timer-issues/wiki/Wiki">https://github.com/Yeqzids/7timer-issues/wiki/Wiki</a></strong></em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -515,7 +527,7 @@ UTF-8
       <td>none</td>
       <td>0</td>
       <td>5</td>
-      <td>50%</td>
+      <td>54%</td>
       <td>{'direction': 'NE', 'speed': 3}</td>
       <td>cloudyday</td>
     </tr>
@@ -527,7 +539,7 @@ UTF-8
       <td>none</td>
       <td>0</td>
       <td>5</td>
-      <td>51%</td>
+      <td>53%</td>
       <td>{'direction': 'NE', 'speed': 3}</td>
       <td>cloudyday</td>
     </tr>
@@ -551,7 +563,7 @@ UTF-8
       <td>rain</td>
       <td>1</td>
       <td>4</td>
-      <td>82%</td>
+      <td>81%</td>
       <td>{'direction': 'NE', 'speed': 3}</td>
       <td>lightrainnight</td>
     </tr>
@@ -563,7 +575,7 @@ UTF-8
       <td>rain</td>
       <td>1</td>
       <td>4</td>
-      <td>65%</td>
+      <td>67%</td>
       <td>{'direction': 'NE', 'speed': 2}</td>
       <td>lightrainnight</td>
     </tr>
@@ -572,11 +584,11 @@ UTF-8
 </div></div></div>
 </div>
 </div>
-<div class="section" id="transform-data">
-<h2>Transform Data<a class="headerlink" href="#transform-data" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="string-to-datetime">
-<h3>string to datetime<a class="headerlink" href="#string-to-datetime" title="Permalink to this headline">¶</a></h3>
-<p>“init” datetime is quite important, but it is returned as str. It is good practice to convert it to datatime. Since we decide to use DataFrame to parse raw text, consistently, we are using pd.to_datetime function rather than datetime package.</p>
+<div class="section" id="id3">
+<h2>数据变换<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3>字符串转时间<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>“init” 时间戳非常重要，但是它存储为str格式。 所以我们需要还原为datetime格式。而且，我们决定采用DataFrame来转换原始数据，为了一致性，我们采用 pd.to_datetime 函数而不是 datetime 模块来进行变换.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start_time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">text_j</span><span class="p">[</span><span class="s1">&#39;init&#39;</span><span class="p">],</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">%H&#39;</span><span class="p">)</span>
@@ -591,12 +603,12 @@ UTF-8
 </div>
 </div>
 </div>
-<div class="section" id="int-to-timedelta">
-<h3>int to timedelta<a class="headerlink" href="#int-to-timedelta" title="Permalink to this headline">¶</a></h3>
-<p>timepoint column is recorded as “next N” hours from init time, so we can reverse them back to real timestamps.</p>
+<div class="section" id="inttimedelta">
+<h3>int转timedelta<a class="headerlink" href="#inttimedelta" title="Permalink to this headline">¶</a></h3>
+<p>timepoint 列表示未来N个小时，起始从init 开始算起。同样的，我们需要将这个timepoint还原成真实的时间戳。</p>
 <ol class="simple">
-<li><p>convert int to timedelta</p></li>
-<li><p>shift init time by using each timedelta</p></li>
+<li><p>将int转换为timedelta</p></li>
+<li><p>将timedelta变成时间戳</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -659,7 +671,7 @@ UTF-8
       <td>none</td>
       <td>0</td>
       <td>5</td>
-      <td>50%</td>
+      <td>54%</td>
       <td>{'direction': 'NE', 'speed': 3}</td>
       <td>cloudyday</td>
       <td>2022-02-03 03:00:00</td>
@@ -672,7 +684,7 @@ UTF-8
       <td>none</td>
       <td>0</td>
       <td>5</td>
-      <td>51%</td>
+      <td>53%</td>
       <td>{'direction': 'NE', 'speed': 3}</td>
       <td>cloudyday</td>
       <td>2022-02-03 06:00:00</td>
@@ -698,7 +710,7 @@ UTF-8
       <td>rain</td>
       <td>1</td>
       <td>4</td>
-      <td>82%</td>
+      <td>81%</td>
       <td>{'direction': 'NE', 'speed': 3}</td>
       <td>lightrainnight</td>
       <td>2022-02-03 12:00:00</td>
@@ -711,7 +723,7 @@ UTF-8
       <td>rain</td>
       <td>1</td>
       <td>4</td>
-      <td>65%</td>
+      <td>67%</td>
       <td>{'direction': 'NE', 'speed': 2}</td>
       <td>lightrainnight</td>
       <td>2022-02-03 15:00:00</td>
@@ -722,13 +734,12 @@ UTF-8
 </div>
 </div>
 </div>
-<div class="section" id="from-city-name-to-geolocation">
-<h2>From City Name to Geolocation<a class="headerlink" href="#from-city-name-to-geolocation" title="Permalink to this headline">¶</a></h2>
-<p>what if we want to get weather info by inputing the city name? We have to get the geolocation (longitude and latitude) from city name. Luckily, there are multiple wheels for this and geopy is one of them.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">geopy</span>
-</pre></div>
-</div>
-<p>***More info about geopy: ***
+<div class="section" id="id5">
+<h2>从城市名获取地理位置<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>如果你想输入城市名，然后直接获取天气信息呢？ 那么我们就需要通过城市名先获取地理位置。幸运的是，已经有模块可以帮我们完成这个任务geopy</p>
+<p>如果你需要的话，可以安装。</p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">geopy</span></code></p>
+<p><em><strong>关于geopy可以参考：</strong></em>
 <a class="reference external" href="https://geopy.readthedocs.io/en/stable/">https://geopy.readthedocs.io/en/stable/</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -753,7 +764,11 @@ UTF-8
 </div>
 </div>
 </div>
-<p>So far, we know how to request the weather info by inputing the city name step by step. The codes shall be sorted somehow before we move to next functionality design.</p>
+</div>
+<div class="section" id="id6">
+<h2>小结<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>到目前为止，我们一步一步的实现如何输入城市名，然后调用api获取天气预测信息。
+在进行其他操作之前，我们需要清理一下我们的代码，最好写成函数形式，因为未来需要重复调用它们。</p>
 </div>
 </div>
 
@@ -781,7 +796,21 @@ UTF-8
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Introduction</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="query_api_sorted.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Clean the Code</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             
         </div>

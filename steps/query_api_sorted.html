@@ -52,7 +52,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="连接数据库SQLite" href="db_access_zh.html" />
-    <link rel="prev" title="Data Collection" href="query_api.html" />
+    <link rel="prev" title="数据获取" href="query_api_zh.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -98,13 +98,13 @@
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Reqest Data and Transform
+  数据获取（ETL）
  </span>
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="query_api.html">
-   Data Collection
+  <a class="reference internal" href="query_api_zh.html">
+   数据获取
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -115,7 +115,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Access to DataBase
+  访问数据库
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -127,7 +127,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Present Result
+  展示结果
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -343,11 +343,11 @@
  &#39;cloudcover&#39;: 9,
  &#39;lifted_index&#39;: 15,
  &#39;prec_type&#39;: &#39;none&#39;,
- &#39;prec_amount&#39;: 1,
- &#39;temp2m&#39;: 4,
- &#39;rh2m&#39;: &#39;89%&#39;,
+ &#39;prec_amount&#39;: 0,
+ &#39;temp2m&#39;: 5,
+ &#39;rh2m&#39;: &#39;55%&#39;,
  &#39;wind10m&#39;: {&#39;direction&#39;: &#39;NE&#39;, &#39;speed&#39;: 3},
- &#39;weather&#39;: &#39;cloudynight&#39;}
+ &#39;weather&#39;: &#39;cloudyday&#39;}
 </pre></div>
 </div>
 </div>
@@ -430,11 +430,11 @@
       <td>9</td>
       <td>15</td>
       <td>none</td>
-      <td>1</td>
-      <td>4</td>
-      <td>89</td>
-      <td>cloudynight</td>
-      <td>2022-02-02 21:00:00</td>
+      <td>0</td>
+      <td>5</td>
+      <td>55</td>
+      <td>cloudyday</td>
+      <td>2022-02-03 03:00:00</td>
       <td>NE</td>
       <td>3</td>
       <td>121.469207</td>
@@ -445,12 +445,12 @@
       <th>1</th>
       <td>9</td>
       <td>15</td>
-      <td>rain</td>
-      <td>1</td>
-      <td>4</td>
-      <td>67</td>
-      <td>lightrainday</td>
-      <td>2022-02-03 00:00:00</td>
+      <td>none</td>
+      <td>0</td>
+      <td>5</td>
+      <td>53</td>
+      <td>cloudyday</td>
+      <td>2022-02-03 06:00:00</td>
       <td>NE</td>
       <td>3</td>
       <td>121.469207</td>
@@ -463,10 +463,10 @@
       <td>15</td>
       <td>none</td>
       <td>1</td>
-      <td>5</td>
-      <td>54</td>
+      <td>4</td>
+      <td>71</td>
       <td>cloudyday</td>
-      <td>2022-02-03 03:00:00</td>
+      <td>2022-02-03 09:00:00</td>
       <td>NE</td>
       <td>3</td>
       <td>121.469207</td>
@@ -477,12 +477,12 @@
       <th>3</th>
       <td>9</td>
       <td>15</td>
-      <td>none</td>
+      <td>rain</td>
       <td>1</td>
-      <td>5</td>
-      <td>52</td>
-      <td>cloudyday</td>
-      <td>2022-02-03 06:00:00</td>
+      <td>4</td>
+      <td>85</td>
+      <td>lightrainnight</td>
+      <td>2022-02-03 12:00:00</td>
       <td>NE</td>
       <td>3</td>
       <td>121.469207</td>
@@ -495,12 +495,12 @@
       <td>15</td>
       <td>rain</td>
       <td>1</td>
-      <td>5</td>
-      <td>60</td>
-      <td>lightrainday</td>
-      <td>2022-02-03 09:00:00</td>
+      <td>4</td>
+      <td>67</td>
+      <td>lightrainnight</td>
+      <td>2022-02-03 15:00:00</td>
       <td>NE</td>
-      <td>3</td>
+      <td>2</td>
       <td>121.469207</td>
       <td>31.232276</td>
       <td>shanghai</td>
@@ -523,31 +523,31 @@
     </tr>
     <tr>
       <th>59</th>
-      <td>7</td>
+      <td>3</td>
       <td>15</td>
-      <td>rain</td>
+      <td>none</td>
       <td>4</td>
       <td>5</td>
-      <td>45</td>
-      <td>rainday</td>
-      <td>2022-02-10 06:00:00</td>
-      <td>NW</td>
-      <td>2</td>
+      <td>73</td>
+      <td>pcloudynight</td>
+      <td>2022-02-10 12:00:00</td>
+      <td>E</td>
+      <td>3</td>
       <td>121.469207</td>
       <td>31.232276</td>
       <td>shanghai</td>
     </tr>
     <tr>
       <th>60</th>
-      <td>6</td>
+      <td>9</td>
       <td>15</td>
       <td>none</td>
       <td>4</td>
-      <td>6</td>
-      <td>52</td>
-      <td>mcloudyday</td>
-      <td>2022-02-10 09:00:00</td>
-      <td>NW</td>
+      <td>5</td>
+      <td>70</td>
+      <td>cloudynight</td>
+      <td>2022-02-10 15:00:00</td>
+      <td>SE</td>
       <td>2</td>
       <td>121.469207</td>
       <td>31.232276</td>
@@ -555,31 +555,31 @@
     </tr>
     <tr>
       <th>61</th>
-      <td>5</td>
+      <td>9</td>
       <td>15</td>
       <td>none</td>
       <td>4</td>
-      <td>6</td>
-      <td>61</td>
-      <td>pcloudynight</td>
-      <td>2022-02-10 12:00:00</td>
-      <td>W</td>
-      <td>3</td>
+      <td>5</td>
+      <td>72</td>
+      <td>cloudynight</td>
+      <td>2022-02-10 18:00:00</td>
+      <td>SE</td>
+      <td>2</td>
       <td>121.469207</td>
       <td>31.232276</td>
       <td>shanghai</td>
     </tr>
     <tr>
       <th>62</th>
-      <td>7</td>
+      <td>9</td>
       <td>15</td>
       <td>none</td>
       <td>4</td>
-      <td>6</td>
-      <td>73</td>
-      <td>mcloudynight</td>
-      <td>2022-02-10 15:00:00</td>
-      <td>SW</td>
+      <td>5</td>
+      <td>70</td>
+      <td>cloudynight</td>
+      <td>2022-02-10 21:00:00</td>
+      <td>NE</td>
       <td>3</td>
       <td>121.469207</td>
       <td>31.232276</td>
@@ -587,16 +587,16 @@
     </tr>
     <tr>
       <th>63</th>
-      <td>8</td>
+      <td>9</td>
       <td>15</td>
       <td>none</td>
       <td>4</td>
-      <td>6</td>
-      <td>79</td>
-      <td>cloudynight</td>
-      <td>2022-02-10 18:00:00</td>
-      <td>W</td>
-      <td>4</td>
+      <td>5</td>
+      <td>65</td>
+      <td>cloudyday</td>
+      <td>2022-02-11 00:00:00</td>
+      <td>NE</td>
+      <td>3</td>
       <td>121.469207</td>
       <td>31.232276</td>
       <td>shanghai</td>
@@ -634,11 +634,11 @@
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="query_api.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="query_api_zh.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Data Collection</p>
+            <p class="prev-next-title">数据获取</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="db_access_zh.html" title="next page">

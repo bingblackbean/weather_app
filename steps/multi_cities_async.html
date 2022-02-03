@@ -98,13 +98,13 @@
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Reqest Data and Transform
+  数据获取（ETL）
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="query_api.html">
-   Data Collection
+  <a class="reference internal" href="query_api_zh.html">
+   数据获取
   </a>
  </li>
  <li class="toctree-l1">
@@ -115,7 +115,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Access to DataBase
+  访问数据库
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -127,7 +127,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Present Result
+  展示结果
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -736,17 +736,17 @@
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "d91f32ec515a4d9285371bda4eb98b38"}
+{"version_major": 2, "version_minor": 0, "model_id": "b3690ffd24544218bf544fe2645d09df"}
 </script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
   File &quot;c:\users\renb\pycharmprojects\weather_dashapp\dash\lib\site-packages\gevent\_ffi\loop.py&quot;, line 270, in python_check_callback
     def python_check_callback(self, watcher_ptr): # pylint:disable=unused-argument
 KeyboardInterrupt
-2022-02-03T05:55:59Z
+2022-02-03T08:24:41Z
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span>\<span class="n">ipykernel_21292</span>\<span class="mf">3832706160.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span>\<span class="n">ipykernel_24156</span>\<span class="mf">3832706160.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="n">rs</span> <span class="o">=</span> <span class="p">(</span><span class="n">grequests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">url_list</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="n">all_cities_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 <span class="ne">---&gt; </span><span class="mi">20</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">r</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">grequests</span><span class="o">.</span><span class="n">imap</span><span class="p">(</span><span class="n">rs</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">50</span><span class="p">))):</span>
