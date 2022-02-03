@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>数据获取 &#8212; Weather Dashboard</title>
+    <title>数据获取 &#8212; 天气预报项目</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -52,7 +52,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="清理代码" href="query_api_sorted_zh.html" />
-    <link rel="prev" title="Introduction" href="../intro.html" />
+    <link rel="prev" title="项目简介" href="../intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -81,7 +81,7 @@
       <img src="../_static/data_amber.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Weather Dashboard</h1>
+      <h1 class="site-logo" id="site-title">天气预报项目</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -92,7 +92,7 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro.html">
-   Introduction
+   项目简介
   </a>
  </li>
 </ul>
@@ -210,11 +210,11 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/bingblackbean/weather_app"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fsteps/query_api_zh.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/bingblackbean/weather_app/issues/new?title=Issue%20on%20page%20%2Fsteps/query_api_zh.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -235,7 +235,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/steps/query_api_zh.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/bingblackbean/weather_app/weather_info_zh?urlpath=tree/docs/steps/query_api_zh.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -461,7 +461,7 @@ UTF-8
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;2022020300&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;2022020200&#39;
 </pre></div>
 </div>
 </div>
@@ -476,12 +476,12 @@ UTF-8
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;timepoint&#39;: 3,
  &#39;cloudcover&#39;: 9,
  &#39;lifted_index&#39;: 15,
- &#39;prec_type&#39;: &#39;none&#39;,
- &#39;prec_amount&#39;: 0,
- &#39;temp2m&#39;: 5,
- &#39;rh2m&#39;: &#39;52%&#39;,
+ &#39;prec_type&#39;: &#39;rain&#39;,
+ &#39;prec_amount&#39;: 1,
+ &#39;temp2m&#39;: 4,
+ &#39;rh2m&#39;: &#39;75%&#39;,
  &#39;wind10m&#39;: {&#39;direction&#39;: &#39;NE&#39;, &#39;speed&#39;: 3},
- &#39;weather&#39;: &#39;cloudyday&#39;}
+ &#39;weather&#39;: &#39;lightrainday&#39;}
 </pre></div>
 </div>
 </div>
@@ -541,36 +541,36 @@ UTF-8
       <td>3</td>
       <td>9</td>
       <td>15</td>
-      <td>none</td>
-      <td>0</td>
-      <td>5</td>
-      <td>52%</td>
+      <td>rain</td>
+      <td>1</td>
+      <td>4</td>
+      <td>75%</td>
       <td>{'direction': 'NE', 'speed': 3}</td>
-      <td>cloudyday</td>
+      <td>lightrainday</td>
     </tr>
     <tr>
       <th>1</th>
       <td>6</td>
       <td>9</td>
       <td>15</td>
-      <td>none</td>
-      <td>0</td>
-      <td>5</td>
-      <td>50%</td>
+      <td>rain</td>
+      <td>2</td>
+      <td>4</td>
+      <td>70%</td>
       <td>{'direction': 'NE', 'speed': 3}</td>
-      <td>cloudyday</td>
+      <td>lightrainday</td>
     </tr>
     <tr>
       <th>2</th>
       <td>9</td>
       <td>9</td>
       <td>15</td>
-      <td>none</td>
-      <td>1</td>
+      <td>rain</td>
+      <td>2</td>
       <td>4</td>
       <td>71%</td>
       <td>{'direction': 'NE', 'speed': 3}</td>
-      <td>cloudyday</td>
+      <td>lightrainday</td>
     </tr>
     <tr>
       <th>3</th>
@@ -578,9 +578,9 @@ UTF-8
       <td>9</td>
       <td>15</td>
       <td>rain</td>
-      <td>1</td>
-      <td>4</td>
-      <td>82%</td>
+      <td>2</td>
+      <td>3</td>
+      <td>86%</td>
       <td>{'direction': 'NE', 'speed': 3}</td>
       <td>lightrainnight</td>
     </tr>
@@ -590,10 +590,10 @@ UTF-8
       <td>9</td>
       <td>15</td>
       <td>rain</td>
-      <td>1</td>
-      <td>4</td>
-      <td>67%</td>
-      <td>{'direction': 'NE', 'speed': 2}</td>
+      <td>2</td>
+      <td>3</td>
+      <td>92%</td>
+      <td>{'direction': 'NE', 'speed': 3}</td>
       <td>lightrainnight</td>
     </tr>
   </tbody>
@@ -614,7 +614,7 @@ UTF-8
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Timestamp(&#39;2022-02-03 00:00:00&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Timestamp(&#39;2022-02-02 00:00:00&#39;)
 </pre></div>
 </div>
 </div>
@@ -685,39 +685,39 @@ UTF-8
       <td>0 days 03:00:00</td>
       <td>9</td>
       <td>15</td>
-      <td>none</td>
-      <td>0</td>
-      <td>5</td>
-      <td>52%</td>
+      <td>rain</td>
+      <td>1</td>
+      <td>4</td>
+      <td>75%</td>
       <td>{'direction': 'NE', 'speed': 3}</td>
-      <td>cloudyday</td>
-      <td>2022-02-03 03:00:00</td>
+      <td>lightrainday</td>
+      <td>2022-02-02 03:00:00</td>
     </tr>
     <tr>
       <th>1</th>
       <td>0 days 06:00:00</td>
       <td>9</td>
       <td>15</td>
-      <td>none</td>
-      <td>0</td>
-      <td>5</td>
-      <td>50%</td>
+      <td>rain</td>
+      <td>2</td>
+      <td>4</td>
+      <td>70%</td>
       <td>{'direction': 'NE', 'speed': 3}</td>
-      <td>cloudyday</td>
-      <td>2022-02-03 06:00:00</td>
+      <td>lightrainday</td>
+      <td>2022-02-02 06:00:00</td>
     </tr>
     <tr>
       <th>2</th>
       <td>0 days 09:00:00</td>
       <td>9</td>
       <td>15</td>
-      <td>none</td>
-      <td>1</td>
+      <td>rain</td>
+      <td>2</td>
       <td>4</td>
       <td>71%</td>
       <td>{'direction': 'NE', 'speed': 3}</td>
-      <td>cloudyday</td>
-      <td>2022-02-03 09:00:00</td>
+      <td>lightrainday</td>
+      <td>2022-02-02 09:00:00</td>
     </tr>
     <tr>
       <th>3</th>
@@ -725,12 +725,12 @@ UTF-8
       <td>9</td>
       <td>15</td>
       <td>rain</td>
-      <td>1</td>
-      <td>4</td>
-      <td>82%</td>
+      <td>2</td>
+      <td>3</td>
+      <td>86%</td>
       <td>{'direction': 'NE', 'speed': 3}</td>
       <td>lightrainnight</td>
-      <td>2022-02-03 12:00:00</td>
+      <td>2022-02-02 12:00:00</td>
     </tr>
     <tr>
       <th>4</th>
@@ -738,12 +738,12 @@ UTF-8
       <td>9</td>
       <td>15</td>
       <td>rain</td>
-      <td>1</td>
-      <td>4</td>
-      <td>67%</td>
-      <td>{'direction': 'NE', 'speed': 2}</td>
+      <td>2</td>
+      <td>3</td>
+      <td>92%</td>
+      <td>{'direction': 'NE', 'speed': 3}</td>
       <td>lightrainnight</td>
-      <td>2022-02-03 15:00:00</td>
+      <td>2022-02-02 15:00:00</td>
     </tr>
   </tbody>
 </table>
@@ -818,7 +818,7 @@ UTF-8
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Introduction</p>
+            <p class="prev-next-title">项目简介</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="query_api_sorted_zh.html" title="next page">

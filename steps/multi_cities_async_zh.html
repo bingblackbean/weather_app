@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>采用异步Async &#8212; Weather Dashboard</title>
+    <title>采用异步Async &#8212; 天气预报项目</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -81,7 +81,7 @@
       <img src="../_static/data_amber.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Weather Dashboard</h1>
+      <h1 class="site-logo" id="site-title">天气预报项目</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -92,7 +92,7 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro.html">
-   Introduction
+   项目简介
   </a>
  </li>
 </ul>
@@ -210,11 +210,11 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/bingblackbean/weather_app"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fsteps/multi_cities_async_zh.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/bingblackbean/weather_app/issues/new?title=Issue%20on%20page%20%2Fsteps/multi_cities_async_zh.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -235,7 +235,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/steps/multi_cities_async_zh.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/bingblackbean/weather_app/weather_info_zh?urlpath=tree/docs/steps/multi_cities_async_zh.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -791,73 +791,8 @@
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "16aa8be78e274f70994eecfbc6e2fe74"}
-</script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Traceback (most recent call last):
-  File &quot;c:\users\renb\pycharmprojects\weather_dashapp\dash\lib\site-packages\gevent\_ffi\loop.py&quot;, line 270, in python_check_callback
-    def python_check_callback(self, watcher_ptr): # pylint:disable=unused-argument
-KeyboardInterrupt
-2022-02-03T09:16:35Z
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span>\<span class="n">ipykernel_5444</span>\<span class="mf">3832706160.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="n">rs</span> <span class="o">=</span> <span class="p">(</span><span class="n">grequests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">url_list</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="n">all_cities_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-<span class="ne">---&gt; </span><span class="mi">20</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">r</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">grequests</span><span class="o">.</span><span class="n">imap</span><span class="p">(</span><span class="n">rs</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">50</span><span class="p">))):</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span>     <span class="n">text_j</span><span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span>     <span class="n">weather_info_df</span> <span class="o">=</span> <span class="n">transform_weather_raw</span><span class="p">(</span><span class="n">text_j</span><span class="p">)</span>
-
-<span class="nn">c:\users\renb\pycharmprojects\weather_dashapp\dash\lib\site-packages\tqdm\notebook.py</span> in <span class="ni">__iter__</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">255</span>     <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">256</span>         <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">257</span>             <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="nb">super</span><span class="p">(</span><span class="n">tqdm_notebook</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__iter__</span><span class="p">():</span>
-<span class="g g-Whitespace">    </span><span class="mi">258</span>                 <span class="c1"># return super(tqdm...) will not catch exception</span>
-<span class="g g-Whitespace">    </span><span class="mi">259</span>                 <span class="k">yield</span> <span class="n">obj</span>
-
-<span class="nn">c:\users\renb\pycharmprojects\weather_dashapp\dash\lib\site-packages\tqdm\std.py</span> in <span class="ni">__iter__</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1178</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1179</span>         <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1180</span>             <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1181</span>                 <span class="k">yield</span> <span class="n">obj</span>
-<span class="g g-Whitespace">   </span><span class="mi">1182</span>                 <span class="c1"># Update and possibly print the progressbar.</span>
-
-<span class="nn">c:\users\renb\pycharmprojects\weather_dashapp\dash\lib\site-packages\grequests.py</span> in <span class="ni">imap</span><span class="nt">(requests, stream, size, exception_handler)</span>
-<span class="g g-Whitespace">    </span><span class="mi">155</span>         <span class="k">return</span> <span class="n">r</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">stream</span><span class="o">=</span><span class="n">stream</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">156</span> 
-<span class="ne">--&gt; </span><span class="mi">157</span>     <span class="k">for</span> <span class="n">request</span> <span class="ow">in</span> <span class="n">pool</span><span class="o">.</span><span class="n">imap_unordered</span><span class="p">(</span><span class="n">send</span><span class="p">,</span> <span class="n">requests</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">158</span>         <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">response</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">159</span>             <span class="k">yield</span> <span class="n">request</span><span class="o">.</span><span class="n">response</span>
-
-<span class="nn">c:\users\renb\pycharmprojects\weather_dashapp\dash\lib\site-packages\gevent\_gevent_c_imap.cp39-win_amd64.pyd</span> in <span class="ni">gevent._gevent_c_imap.IMapUnordered.__next__</span><span class="nt">()</span>
-
-<span class="nn">c:\users\renb\pycharmprojects\weather_dashapp\dash\lib\site-packages\gevent\_gevent_c_imap.cp39-win_amd64.pyd</span> in <span class="ni">gevent._gevent_c_imap.IMapUnordered._inext</span><span class="nt">()</span>
-
-<span class="nn">c:\users\renb\pycharmprojects\weather_dashapp\dash\lib\site-packages\gevent\_gevent_cqueue.cp39-win_amd64.pyd</span> in <span class="ni">gevent._gevent_cqueue.Queue.get</span><span class="nt">()</span>
-
-<span class="nn">c:\users\renb\pycharmprojects\weather_dashapp\dash\lib\site-packages\gevent\_gevent_cqueue.cp39-win_amd64.pyd</span> in <span class="ni">gevent._gevent_cqueue.Queue._Queue__get_or_peek</span><span class="nt">()</span>
-
-<span class="nn">c:\users\renb\pycharmprojects\weather_dashapp\dash\lib\site-packages\gevent\_gevent_c_waiter.cp39-win_amd64.pyd</span> in <span class="ni">gevent._gevent_c_waiter.Waiter.get</span><span class="nt">()</span>
-
-<span class="nn">c:\users\renb\pycharmprojects\weather_dashapp\dash\lib\site-packages\gevent\_gevent_c_greenlet_primitives.cp39-win_amd64.pyd</span> in <span class="ni">gevent._gevent_c_greenlet_primitives.SwitchOutGreenletWithLoop.switch</span><span class="nt">()</span>
-
-<span class="nn">c:\users\renb\pycharmprojects\weather_dashapp\dash\lib\site-packages\gevent\_gevent_c_greenlet_primitives.cp39-win_amd64.pyd</span> in <span class="ni">gevent._gevent_c_greenlet_primitives.SwitchOutGreenletWithLoop.switch</span><span class="nt">()</span>
-
-<span class="nn">c:\users\renb\pycharmprojects\weather_dashapp\dash\lib\site-packages\gevent\_gevent_c_greenlet_primitives.cp39-win_amd64.pyd</span> in <span class="ni">gevent._gevent_c_greenlet_primitives.SwitchOutGreenletWithLoop.switch</span><span class="nt">()</span>
-
-<span class="nn">src\\gevent\\_gevent_c_greenlet_primitives.pxd</span> in <span class="ni">gevent._gevent_c_greenlet_primitives._greenlet_switch</span><span class="nt">()</span>
-
-<span class="nn">c:\users\renb\pycharmprojects\weather_dashapp\dash\lib\site-packages\gevent\_ffi\loop.py</span> in <span class="ni">python_check_callback</span><span class="nt">(self, watcher_ptr)</span>
-<span class="g g-Whitespace">    </span><span class="mi">268</span> 
-<span class="g g-Whitespace">    </span><span class="mi">269</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">PYPY</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">270</span>         <span class="k">def</span> <span class="nf">python_check_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">watcher_ptr</span><span class="p">):</span> <span class="c1"># pylint:disable=unused-argument</span>
-<span class="g g-Whitespace">    </span><span class="mi">271</span>             <span class="c1"># If we have the onerror callback, this is a no-op; all the real</span>
-<span class="g g-Whitespace">    </span><span class="mi">272</span>             <span class="c1"># work to rethrow the exception is done by the onerror callback</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c:\users\renb\pycharmprojects\weather_dashapp\dash\lib\site-packages\gevent\hub.py:161: UserWarning: libuv only supports millisecond timer resolution; all times less will be set to 1 ms
+{"model_id": "9b76f160599f4a2caef040e15e55646d", "version_major": 2, "version_minor": 0}
+</script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c:\users\renb\pycharmprojects\weather_dashapp\dash\lib\site-packages\gevent\hub.py:161: UserWarning: libuv only supports millisecond timer resolution; all times less will be set to 1 ms
   with loop.timer(seconds, ref=ref) as t:
 </pre></div>
 </div>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>连接数据库SQLite &#8212; Weather Dashboard</title>
+    <title>连接数据库SQLite &#8212; 天气预报项目</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -81,7 +81,7 @@
       <img src="../_static/data_amber.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Weather Dashboard</h1>
+      <h1 class="site-logo" id="site-title">天气预报项目</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -92,7 +92,7 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro.html">
-   Introduction
+   项目简介
   </a>
  </li>
 </ul>
@@ -210,11 +210,11 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/bingblackbean/weather_app"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fsteps/db_access_zh.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/bingblackbean/weather_app/issues/new?title=Issue%20on%20page%20%2Fsteps/db_access_zh.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -235,7 +235,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/steps/db_access_zh.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/bingblackbean/weather_app/weather_info_zh?urlpath=tree/docs/steps/db_access_zh.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -283,8 +283,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#query-and-insert-data-from-database">
-   Query and Insert Data from Database
+  <a class="reference internal nav-link" href="#id4">
+   从数据库查询和插入
   </a>
  </li>
 </ul>
@@ -333,8 +333,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#query-and-insert-data-from-database">
-   Query and Insert Data from Database
+  <a class="reference internal nav-link" href="#id4">
+   从数据库查询和插入
   </a>
  </li>
 </ul>
@@ -447,7 +447,7 @@
       <td>none</td>
       <td>0</td>
       <td>5</td>
-      <td>55</td>
+      <td>54</td>
       <td>cloudyday</td>
       <td>2022-02-03 03:00:00</td>
       <td>NE</td>
@@ -463,7 +463,7 @@
       <td>none</td>
       <td>0</td>
       <td>5</td>
-      <td>52</td>
+      <td>51</td>
       <td>cloudyday</td>
       <td>2022-02-03 06:00:00</td>
       <td>NE</td>
@@ -479,7 +479,7 @@
       <td>none</td>
       <td>1</td>
       <td>4</td>
-      <td>70</td>
+      <td>75</td>
       <td>cloudyday</td>
       <td>2022-02-03 09:00:00</td>
       <td>NE</td>
@@ -495,7 +495,7 @@
       <td>rain</td>
       <td>1</td>
       <td>4</td>
-      <td>81</td>
+      <td>82</td>
       <td>lightrainnight</td>
       <td>2022-02-03 12:00:00</td>
       <td>NE</td>
@@ -543,7 +543,7 @@
       <td>none</td>
       <td>4</td>
       <td>5</td>
-      <td>72</td>
+      <td>71</td>
       <td>pcloudynight</td>
       <td>2022-02-10 12:00:00</td>
       <td>E</td>
@@ -559,7 +559,7 @@
       <td>none</td>
       <td>4</td>
       <td>5</td>
-      <td>74</td>
+      <td>71</td>
       <td>cloudynight</td>
       <td>2022-02-10 15:00:00</td>
       <td>SE</td>
@@ -575,7 +575,7 @@
       <td>none</td>
       <td>4</td>
       <td>5</td>
-      <td>75</td>
+      <td>74</td>
       <td>cloudynight</td>
       <td>2022-02-10 18:00:00</td>
       <td>SE</td>
@@ -591,7 +591,7 @@
       <td>none</td>
       <td>4</td>
       <td>5</td>
-      <td>70</td>
+      <td>75</td>
       <td>cloudynight</td>
       <td>2022-02-10 21:00:00</td>
       <td>NE</td>
@@ -686,7 +686,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sqlalchemy.orm.session.Session at 0x26c90d68e20&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sqlalchemy.orm.session.Session at 0x214dbafbf40&gt;
 </pre></div>
 </div>
 </div>
@@ -694,9 +694,9 @@
 </div>
 <div class="section" id="orm">
 <h2>使用ORM 管理表<a class="headerlink" href="#orm" title="Permalink to this headline">¶</a></h2>
-<p>The Declarative Mapping is the typical way that mappings are constructed in modern SQLAlchemy. The most common pattern is to first construct a base class using the declarative_base() function, which will apply the declarative mapping process to all subclasses that derive from it. (<a class="reference external" href="https://docs.sqlalchemy.org/en/20/orm/mapping_styles.html">https://docs.sqlalchemy.org/en/20/orm/mapping_styles.html</a>)</p>
-<p>Refering to DataFrame structure, we create a Python class and include each column in DataFrame as attribute in class.
-Each class attribute indicates specific column in the table.</p>
+<p>使用ORM最常见的方式就是使用 declarative_base() 函数构造一个基类，该函数会将声明性映射应用于从它派生的所有子类。所以我们需要建立class，然后从Base继承。
+(<a class="reference external" href="https://docs.sqlalchemy.org/en/20/orm/mapping_styles.html">https://docs.sqlalchemy.org/en/20/orm/mapping_styles.html</a>)</p>
+<p>参考 DataFrame的结构，我们创建一个 Python 类，并将 DataFrame 中的每一列作为属性包含在类中，每个类属性对应表中的特定列。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create database table by defining python class</span>
@@ -732,11 +732,11 @@ Each class attribute indicates specific column in the table.</p>
 </div>
 </div>
 </div>
-<div class="section" id="query-and-insert-data-from-database">
-<h2>Query and Insert Data from Database<a class="headerlink" href="#query-and-insert-data-from-database" title="Permalink to this headline">¶</a></h2>
-<p>As you can see below, the query get 0 result since the table is created as brand new.</p>
-<p>After we insert the DataFrame into database, the newer query gets data.</p>
-<p>Keep in mind to close the session after all transactions.</p>
+<div class="section" id="id4">
+<h2>从数据库查询和插入<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>如下文所示，由于数据表是全新创建的，因此查询得到0结果。</p>
+<p>我们将 DataFrame 插入数据库后，重新查询会获取更多数据。</p>
+<p><code class="docutils literal notranslate"><span class="pre">请记住在所有事务之后关闭会话。</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Base</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">create_all</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>

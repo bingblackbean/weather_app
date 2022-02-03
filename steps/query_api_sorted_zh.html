@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>清理代码 &#8212; Weather Dashboard</title>
+    <title>清理代码 &#8212; 天气预报项目</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -81,7 +81,7 @@
       <img src="../_static/data_amber.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Weather Dashboard</h1>
+      <h1 class="site-logo" id="site-title">天气预报项目</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -92,7 +92,7 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro.html">
-   Introduction
+   项目简介
   </a>
  </li>
 </ul>
@@ -210,11 +210,11 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/bingblackbean/weather_app"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fsteps/query_api_sorted_zh.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/bingblackbean/weather_app/issues/new?title=Issue%20on%20page%20%2Fsteps/query_api_sorted_zh.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -235,7 +235,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/steps/query_api_sorted_zh.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/bingblackbean/weather_app/weather_info_zh?urlpath=tree/docs/steps/query_api_sorted_zh.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -373,12 +373,12 @@
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;timepoint&#39;: 3,
  &#39;cloudcover&#39;: 9,
  &#39;lifted_index&#39;: 15,
- &#39;prec_type&#39;: &#39;none&#39;,
- &#39;prec_amount&#39;: 0,
- &#39;temp2m&#39;: 5,
- &#39;rh2m&#39;: &#39;52%&#39;,
+ &#39;prec_type&#39;: &#39;rain&#39;,
+ &#39;prec_amount&#39;: 1,
+ &#39;temp2m&#39;: 4,
+ &#39;rh2m&#39;: &#39;70%&#39;,
  &#39;wind10m&#39;: {&#39;direction&#39;: &#39;NE&#39;, &#39;speed&#39;: 3},
- &#39;weather&#39;: &#39;cloudyday&#39;}
+ &#39;weather&#39;: &#39;lightrainday&#39;}
 </pre></div>
 </div>
 </div>
@@ -461,12 +461,12 @@
       <th>0</th>
       <td>9</td>
       <td>15</td>
-      <td>none</td>
-      <td>0</td>
-      <td>5</td>
-      <td>52</td>
-      <td>cloudyday</td>
-      <td>2022-02-03 03:00:00</td>
+      <td>rain</td>
+      <td>1</td>
+      <td>4</td>
+      <td>70</td>
+      <td>lightrainday</td>
+      <td>2022-02-02 03:00:00</td>
       <td>NE</td>
       <td>3</td>
       <td>121.469207</td>
@@ -477,12 +477,12 @@
       <th>1</th>
       <td>9</td>
       <td>15</td>
-      <td>none</td>
-      <td>0</td>
-      <td>5</td>
-      <td>50</td>
-      <td>cloudyday</td>
-      <td>2022-02-03 06:00:00</td>
+      <td>rain</td>
+      <td>2</td>
+      <td>4</td>
+      <td>70</td>
+      <td>lightrainday</td>
+      <td>2022-02-02 06:00:00</td>
       <td>NE</td>
       <td>3</td>
       <td>121.469207</td>
@@ -493,12 +493,12 @@
       <th>2</th>
       <td>9</td>
       <td>15</td>
-      <td>none</td>
-      <td>1</td>
+      <td>rain</td>
+      <td>2</td>
       <td>4</td>
-      <td>73</td>
-      <td>cloudyday</td>
-      <td>2022-02-03 09:00:00</td>
+      <td>70</td>
+      <td>lightrainday</td>
+      <td>2022-02-02 09:00:00</td>
       <td>NE</td>
       <td>3</td>
       <td>121.469207</td>
@@ -510,11 +510,11 @@
       <td>9</td>
       <td>15</td>
       <td>rain</td>
-      <td>1</td>
-      <td>4</td>
-      <td>80</td>
+      <td>2</td>
+      <td>3</td>
+      <td>87</td>
       <td>lightrainnight</td>
-      <td>2022-02-03 12:00:00</td>
+      <td>2022-02-02 12:00:00</td>
       <td>NE</td>
       <td>3</td>
       <td>121.469207</td>
@@ -526,13 +526,13 @@
       <td>9</td>
       <td>15</td>
       <td>rain</td>
-      <td>1</td>
-      <td>4</td>
-      <td>67</td>
-      <td>lightrainnight</td>
-      <td>2022-02-03 15:00:00</td>
-      <td>NE</td>
       <td>2</td>
+      <td>3</td>
+      <td>90</td>
+      <td>lightrainnight</td>
+      <td>2022-02-02 15:00:00</td>
+      <td>NE</td>
+      <td>3</td>
       <td>121.469207</td>
       <td>31.232276</td>
       <td>shanghai</td>
@@ -555,15 +555,15 @@
     </tr>
     <tr>
       <th>59</th>
-      <td>3</td>
+      <td>9</td>
       <td>15</td>
-      <td>none</td>
+      <td>rain</td>
       <td>4</td>
       <td>5</td>
       <td>74</td>
-      <td>pcloudynight</td>
-      <td>2022-02-10 12:00:00</td>
-      <td>E</td>
+      <td>rainnight</td>
+      <td>2022-02-09 12:00:00</td>
+      <td>N</td>
       <td>3</td>
       <td>121.469207</td>
       <td>31.232276</td>
@@ -576,42 +576,42 @@
       <td>none</td>
       <td>4</td>
       <td>5</td>
-      <td>75</td>
+      <td>73</td>
       <td>cloudynight</td>
-      <td>2022-02-10 15:00:00</td>
-      <td>SE</td>
-      <td>2</td>
+      <td>2022-02-09 15:00:00</td>
+      <td>N</td>
+      <td>3</td>
       <td>121.469207</td>
       <td>31.232276</td>
       <td>shanghai</td>
     </tr>
     <tr>
       <th>61</th>
-      <td>9</td>
+      <td>7</td>
       <td>15</td>
       <td>none</td>
       <td>4</td>
-      <td>5</td>
-      <td>75</td>
-      <td>cloudynight</td>
-      <td>2022-02-10 18:00:00</td>
-      <td>SE</td>
-      <td>2</td>
+      <td>4</td>
+      <td>78</td>
+      <td>mcloudynight</td>
+      <td>2022-02-09 18:00:00</td>
+      <td>N</td>
+      <td>3</td>
       <td>121.469207</td>
       <td>31.232276</td>
       <td>shanghai</td>
     </tr>
     <tr>
       <th>62</th>
-      <td>9</td>
+      <td>2</td>
       <td>15</td>
       <td>none</td>
       <td>4</td>
-      <td>5</td>
-      <td>72</td>
-      <td>cloudynight</td>
-      <td>2022-02-10 21:00:00</td>
-      <td>NE</td>
+      <td>4</td>
+      <td>83</td>
+      <td>clearnight</td>
+      <td>2022-02-09 21:00:00</td>
+      <td>N</td>
       <td>3</td>
       <td>121.469207</td>
       <td>31.232276</td>
@@ -619,15 +619,15 @@
     </tr>
     <tr>
       <th>63</th>
-      <td>9</td>
+      <td>2</td>
       <td>15</td>
       <td>none</td>
       <td>4</td>
-      <td>5</td>
-      <td>62</td>
-      <td>cloudyday</td>
-      <td>2022-02-11 00:00:00</td>
-      <td>NE</td>
+      <td>4</td>
+      <td>75</td>
+      <td>clearday</td>
+      <td>2022-02-10 00:00:00</td>
+      <td>N</td>
       <td>3</td>
       <td>121.469207</td>
       <td>31.232276</td>
