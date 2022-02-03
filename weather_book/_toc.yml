@@ -5,18 +5,18 @@ format: jb-book
 root: intro
 
 parts:
-  - caption: Reqest Data and Transform
+  - caption: 数据获取（ETL）
     # numbered: True  # Only applies to chapters in Part 1.
     chapters:
-    - file: steps/query_api.ipynb
-    - file: steps/query_api_sorted.ipynb
-  - caption: Access to DataBase
+    - file: steps/query_api_zh.ipynb
+    - file: steps/query_api_sorted_zh.ipynb
+  - caption: 访问数据库
     chapters:
     - file: steps/db_access_zh.ipynb
-  - caption: Handle More Cities
+  - caption: 提高代码性能（上千城市数据）
     chapters:
-    - file: steps/multi_cities.ipynb
-    - file: steps/multi_cities_async.ipynb
-  - caption: Present Result
+    - file: steps/multi_cities_zh.ipynb
+    - file: steps/multi_cities_async_zh.ipynb
+  - caption: 展示结果
     chapters:
-    - file: steps/plot_data.ipynb
+    - file: steps/plot_data_zh.ipynb
