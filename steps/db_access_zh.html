@@ -51,8 +51,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="multi_cities.html" />
-    <link rel="prev" title="Clean the Code" href="query_api_sorted.html" />
+    <link rel="next" title="处理多城市" href="multi_cities_zh.html" />
+    <link rel="prev" title="清理代码" href="query_api_sorted_zh.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -108,8 +108,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="query_api_sorted.html">
-   Clean the Code
+  <a class="reference internal" href="query_api_sorted_zh.html">
+   清理代码
   </a>
  </li>
 </ul>
@@ -127,13 +127,30 @@
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
+  提高代码性能（上千城市数据）
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="multi_cities_zh.html">
+   处理多城市
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="multi_cities_async_zh.html">
+   采用异步Async
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
   展示结果
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="plot_data.html">
-   Present Data in Plotly
+  <a class="reference internal" href="plot_data_zh.html">
+   采用Plotly展示
   </a>
  </li>
 </ul>
@@ -430,7 +447,7 @@
       <td>none</td>
       <td>0</td>
       <td>5</td>
-      <td>50</td>
+      <td>55</td>
       <td>cloudyday</td>
       <td>2022-02-03 03:00:00</td>
       <td>NE</td>
@@ -462,7 +479,7 @@
       <td>none</td>
       <td>1</td>
       <td>4</td>
-      <td>75</td>
+      <td>70</td>
       <td>cloudyday</td>
       <td>2022-02-03 09:00:00</td>
       <td>NE</td>
@@ -494,7 +511,7 @@
       <td>rain</td>
       <td>1</td>
       <td>4</td>
-      <td>70</td>
+      <td>68</td>
       <td>lightrainnight</td>
       <td>2022-02-03 15:00:00</td>
       <td>NE</td>
@@ -526,7 +543,7 @@
       <td>none</td>
       <td>4</td>
       <td>5</td>
-      <td>70</td>
+      <td>72</td>
       <td>pcloudynight</td>
       <td>2022-02-10 12:00:00</td>
       <td>E</td>
@@ -542,7 +559,7 @@
       <td>none</td>
       <td>4</td>
       <td>5</td>
-      <td>73</td>
+      <td>74</td>
       <td>cloudynight</td>
       <td>2022-02-10 15:00:00</td>
       <td>SE</td>
@@ -558,7 +575,7 @@
       <td>none</td>
       <td>4</td>
       <td>5</td>
-      <td>70</td>
+      <td>75</td>
       <td>cloudynight</td>
       <td>2022-02-10 18:00:00</td>
       <td>SE</td>
@@ -574,7 +591,7 @@
       <td>none</td>
       <td>4</td>
       <td>5</td>
-      <td>75</td>
+      <td>70</td>
       <td>cloudynight</td>
       <td>2022-02-10 21:00:00</td>
       <td>NE</td>
@@ -590,7 +607,7 @@
       <td>none</td>
       <td>4</td>
       <td>5</td>
-      <td>60</td>
+      <td>62</td>
       <td>cloudyday</td>
       <td>2022-02-11 00:00:00</td>
       <td>NE</td>
@@ -669,7 +686,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sqlalchemy.orm.session.Session at 0x1bfdfe26820&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sqlalchemy.orm.session.Session at 0x26c90d68e20&gt;
 </pre></div>
 </div>
 </div>
@@ -794,17 +811,17 @@ Each class attribute indicates specific column in the table.</p>
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="query_api_sorted.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="query_api_sorted_zh.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Clean the Code</p>
+            <p class="prev-next-title">清理代码</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="multi_cities.html" title="next page">
+    <a class='right-next' id="next-link" href="multi_cities_zh.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title">处理多城市</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

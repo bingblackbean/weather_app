@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>&lt;no title&gt; &#8212; Weather Dashboard</title>
+    <title>处理多城市 &#8212; Weather Dashboard</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -51,7 +51,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="multi_cities_async.html" />
+    <link rel="next" title="采用异步Async" href="multi_cities_async_zh.html" />
     <link rel="prev" title="连接数据库SQLite" href="db_access_zh.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -108,8 +108,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="query_api_sorted.html">
-   Clean the Code
+  <a class="reference internal" href="query_api_sorted_zh.html">
+   清理代码
   </a>
  </li>
 </ul>
@@ -127,13 +127,30 @@
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
+  提高代码性能（上千城市数据）
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   处理多城市
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="multi_cities_async_zh.html">
+   采用异步Async
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
   展示结果
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="plot_data.html">
-   Present Data in Plotly
+  <a class="reference internal" href="plot_data_zh.html">
+   采用Plotly展示
   </a>
  </li>
 </ul>
@@ -177,7 +194,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/steps/multi_cities.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/steps/multi_cities_zh.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -197,7 +214,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fsteps/multi_cities.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fsteps/multi_cities_zh.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -218,7 +235,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/steps/multi_cities.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/steps/multi_cities_zh.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -239,7 +256,32 @@
                 <i class="fas fa-list"></i> Contents
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   获取全球城市
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   数据筛选
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   小技巧
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   获取多个城市信息
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   小结
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -250,7 +292,7 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1><no title></h1>
+                <h1>处理多城市</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -259,7 +301,32 @@
                             <h2> Contents </h2>
                         </div>
                         <nav aria-label="Page">
-                            <ul class="simple visible nav section-nav flex-column">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   获取全球城市
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   数据筛选
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   小技巧
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   获取多个城市信息
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   小结
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -269,14 +336,22 @@
             
               <div>
                 
-  <div class="cell docutils container">
+  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1>处理多城市<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>获取全球城市<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>我们已经知道如何获取一个城市的的天气信息，如果有多个城市，操作方式也是类似的，无非就是添加一个循环而已。</p>
+<p>但是如何获取城市列表呢？
+这里推荐一个网站： <a class="reference external" href="https://simplemaps.com/data/world-cities">https://simplemaps.com/data/world-cities</a></p>
+<p>这里面包含全球城市的完整信息，不仅包含城市名称，还包括国家，经纬度，是否是首都，省会等信息。</p>
+<p>下载后，解压，就可以通过pandas 读取了。</p>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p><a class="reference external" href="https://simplemaps.com/data/world-cities">https://simplemaps.com/data/world-cities</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">city_file</span> <span class="o">=</span> <span class="s1">&#39;../data/worldcities.csv&#39;</span>
@@ -483,6 +558,10 @@
 <p>41001 rows × 11 columns</p>
 </div></div></div>
 </div>
+</div>
+<div class="section" id="id3">
+<h2>数据筛选<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>我们仅仅对国内的主要城市感兴趣，所以，我们需要对DataFrame进行筛选。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">capital_china</span> <span class="o">=</span> <span class="n">city_df</span><span class="p">[(</span><span class="n">city_df</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;China&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">city_df</span><span class="p">[</span><span class="s1">&#39;capital&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)]</span>
@@ -682,6 +761,11 @@
 <p>1498 rows × 11 columns</p>
 </div></div></div>
 </div>
+</div>
+<div class="section" id="id4">
+<h2>小技巧<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>一个好的习惯是，先对单个数据进行处理，确保无误后，再对所有数据进行循环。</p>
+<p>所以我们这里依然需要测一下我们的函数能否获取单个城市的天气信息。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -730,7 +814,6 @@
 </div>
 </div>
 </div>
-<p><a class="reference external" href="https://github.com/spyoungtech/grequests">https://github.com/spyoungtech/grequests</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">city</span> <span class="o">=</span> <span class="n">city_info</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span>
@@ -786,7 +869,7 @@
       <td>none</td>
       <td>0</td>
       <td>5</td>
-      <td>55</td>
+      <td>50</td>
       <td>cloudyday</td>
       <td>2022-02-03 03:00:00</td>
       <td>NE</td>
@@ -818,7 +901,7 @@
       <td>none</td>
       <td>1</td>
       <td>4</td>
-      <td>70</td>
+      <td>72</td>
       <td>cloudyday</td>
       <td>2022-02-03 09:00:00</td>
       <td>NE</td>
@@ -834,7 +917,7 @@
       <td>rain</td>
       <td>1</td>
       <td>4</td>
-      <td>85</td>
+      <td>81</td>
       <td>lightrainnight</td>
       <td>2022-02-03 12:00:00</td>
       <td>NE</td>
@@ -850,7 +933,7 @@
       <td>rain</td>
       <td>1</td>
       <td>4</td>
-      <td>66</td>
+      <td>69</td>
       <td>lightrainnight</td>
       <td>2022-02-03 15:00:00</td>
       <td>NE</td>
@@ -882,7 +965,7 @@
       <td>none</td>
       <td>4</td>
       <td>5</td>
-      <td>71</td>
+      <td>70</td>
       <td>pcloudynight</td>
       <td>2022-02-10 12:00:00</td>
       <td>E</td>
@@ -898,7 +981,7 @@
       <td>none</td>
       <td>4</td>
       <td>5</td>
-      <td>71</td>
+      <td>75</td>
       <td>cloudynight</td>
       <td>2022-02-10 15:00:00</td>
       <td>SE</td>
@@ -914,7 +997,7 @@
       <td>none</td>
       <td>4</td>
       <td>5</td>
-      <td>73</td>
+      <td>75</td>
       <td>cloudynight</td>
       <td>2022-02-10 18:00:00</td>
       <td>SE</td>
@@ -930,7 +1013,7 @@
       <td>none</td>
       <td>4</td>
       <td>5</td>
-      <td>71</td>
+      <td>75</td>
       <td>cloudynight</td>
       <td>2022-02-10 21:00:00</td>
       <td>NE</td>
@@ -946,7 +1029,7 @@
       <td>none</td>
       <td>4</td>
       <td>5</td>
-      <td>62</td>
+      <td>61</td>
       <td>cloudyday</td>
       <td>2022-02-11 00:00:00</td>
       <td>NE</td>
@@ -960,11 +1043,17 @@
 <p>64 rows × 13 columns</p>
 </div></div></div>
 </div>
+</div>
+<div class="section" id="id5">
+<h2>获取多个城市信息<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>确保单个城市可以准确获取信息后，我们建立循环。通过iterrows 逐行进行处理。</p>
+<p>这里我们先用10个城市测测性能。</p>
+<p>可以看到每个循环需要等网站回复很慢，2-3秒一个循环，如果是2000个城市的话，需要80分钟</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tqdm.notebook</span>  <span class="kn">import</span> <span class="n">tqdm</span>
 <span class="n">all_cities_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">index</span><span class="p">,</span><span class="n">city_info</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">capital_china</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">20</span><span class="p">,:]</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()):</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span><span class="n">city_info</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">capital_china</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">,:]</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()):</span>
     <span class="n">city</span> <span class="o">=</span> <span class="n">city_info</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">city</span><span class="p">)</span>
     <span class="n">lon</span> <span class="o">=</span> <span class="n">city_info</span><span class="p">[</span><span class="s1">&#39;lng&#39;</span><span class="p">]</span>
@@ -979,7 +1068,7 @@
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "5adcf83af1fb422a9e9133835f8fd503"}
+{"version_major": 2, "version_minor": 0, "model_id": "c39f6e9d5c4149c6a18bb1b1d3cff7d7"}
 </script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shanghai
 </pre></div>
 </div>
@@ -999,161 +1088,6 @@
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Chengdu
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Linyi
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tianjin
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shijiazhuang
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Zhoukou
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Handan
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span>\<span class="n">ipykernel_28304</span>\<span class="mf">3268997551.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="n">lat</span> <span class="o">=</span> <span class="n">city_info</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">url</span> <span class="o">=</span> <span class="n">generate_url</span><span class="p">(</span><span class="n">longitude</span><span class="o">=</span><span class="n">lon</span><span class="p">,</span><span class="n">latitude</span><span class="o">=</span><span class="n">lat</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">9</span>     <span class="n">text_j</span> <span class="o">=</span> <span class="n">request_weather_info</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="n">weather_info_df</span> <span class="o">=</span> <span class="n">transform_weather_raw</span><span class="p">(</span><span class="n">text_j</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="n">weather_info_df</span> <span class="o">=</span> <span class="n">add_city_info</span><span class="p">(</span><span class="n">weather_info_df</span><span class="p">,</span><span class="n">lon</span><span class="p">,</span><span class="n">lat</span><span class="p">,</span><span class="n">city</span><span class="p">)</span>
-
-<span class="nn">~\PycharmProjects\weather_dashapp\weather_book\weather_app\models\query_api.py</span> in <span class="ni">request_weather_info</span><span class="nt">(url)</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="c1"># function get weather raw info</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="k">def</span> <span class="nf">request_weather_info</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">20</span>     <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span>     <span class="n">text_j</span><span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span>     <span class="k">return</span> <span class="n">text_j</span>
-
-<span class="nn">c:\users\renb\pycharmprojects\weather_dashapp\dash\lib\site-packages\requests\api.py</span> in <span class="ni">get</span><span class="nt">(url, params, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">73</span>     <span class="s2">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">74</span><span class="s2"> </span>
-<span class="ne">---&gt; </span><span class="mi">75</span><span class="s2">     return request(&#39;get&#39;, url, params=params, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">76</span><span class="s2"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">77</span><span class="s2"> </span>
-
-<span class="nn">c:\users\renb\pycharmprojects\weather_dashapp\dash\lib\site-packages\requests\api.py</span> in <span class="ni">request</span><span class="nt">(method, url, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">59</span><span class="s2">     # cases, and look like a memory leak in others.</span>
-<span class="g g-Whitespace">     </span><span class="mi">60</span><span class="s2">     with sessions.Session() as session:</span>
-<span class="ne">---&gt; </span><span class="mi">61</span><span class="s2">         return session.request(method=method, url=url, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">62</span><span class="s2"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">63</span><span class="s2"> </span>
-
-<span class="nn">c:\users\renb\pycharmprojects\weather_dashapp\dash\lib\site-packages\requests\sessions.py</span> in <span class="ni">request</span><span class="nt">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
-<span class="g g-Whitespace">    </span><span class="mi">527</span><span class="s2">         }</span>
-<span class="g g-Whitespace">    </span><span class="mi">528</span><span class="s2">         send_kwargs.update(settings)</span>
-<span class="ne">--&gt; </span><span class="mi">529</span><span class="s2">         resp = self.send(prep, **send_kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">530</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">531</span><span class="s2">         return resp</span>
-
-<span class="nn">c:\users\renb\pycharmprojects\weather_dashapp\dash\lib\site-packages\requests\sessions.py</span> in <span class="ni">send</span><span class="nt">(self, request, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">665</span><span class="s2">             # Redirect resolving generator.</span>
-<span class="g g-Whitespace">    </span><span class="mi">666</span><span class="s2">             gen = self.resolve_redirects(r, request, **kwargs)</span>
-<span class="ne">--&gt; </span><span class="mi">667</span><span class="s2">             history = [resp for resp in gen]</span>
-<span class="g g-Whitespace">    </span><span class="mi">668</span><span class="s2">         else:</span>
-<span class="g g-Whitespace">    </span><span class="mi">669</span><span class="s2">             history = []</span>
-
-<span class="nn">c:\users\renb\pycharmprojects\weather_dashapp\dash\lib\site-packages\requests\sessions.py</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
-<span class="g g-Whitespace">    </span><span class="mi">665</span><span class="s2">             # Redirect resolving generator.</span>
-<span class="g g-Whitespace">    </span><span class="mi">666</span><span class="s2">             gen = self.resolve_redirects(r, request, **kwargs)</span>
-<span class="ne">--&gt; </span><span class="mi">667</span><span class="s2">             history = [resp for resp in gen]</span>
-<span class="g g-Whitespace">    </span><span class="mi">668</span><span class="s2">         else:</span>
-<span class="g g-Whitespace">    </span><span class="mi">669</span><span class="s2">             history = []</span>
-
-<span class="nn">c:\users\renb\pycharmprojects\weather_dashapp\dash\lib\site-packages\requests\sessions.py</span> in <span class="ni">resolve_redirects</span><span class="nt">(self, resp, req, stream, timeout, verify, cert, proxies, yield_requests, **adapter_kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">235</span><span class="s2">             else:</span>
-<span class="g g-Whitespace">    </span><span class="mi">236</span><span class="s2"> </span>
-<span class="ne">--&gt; </span><span class="mi">237</span><span class="s2">                 resp = self.send(</span>
-<span class="g g-Whitespace">    </span><span class="mi">238</span><span class="s2">                     req,</span>
-<span class="g g-Whitespace">    </span><span class="mi">239</span><span class="s2">                     stream=stream,</span>
-
-<span class="nn">c:\users\renb\pycharmprojects\weather_dashapp\dash\lib\site-packages\requests\sessions.py</span> in <span class="ni">send</span><span class="nt">(self, request, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">643</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">644</span><span class="s2">         # Send the request</span>
-<span class="ne">--&gt; </span><span class="mi">645</span><span class="s2">         r = adapter.send(request, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">646</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">647</span><span class="s2">         # Total elapsed time of the request (approximately)</span>
-
-<span class="nn">c:\users\renb\pycharmprojects\weather_dashapp\dash\lib\site-packages\requests\adapters.py</span> in <span class="ni">send</span><span class="nt">(self, request, stream, timeout, verify, cert, proxies)</span>
-<span class="g g-Whitespace">    </span><span class="mi">438</span><span class="s2">         try:</span>
-<span class="g g-Whitespace">    </span><span class="mi">439</span><span class="s2">             if not chunked:</span>
-<span class="ne">--&gt; </span><span class="mi">440</span><span class="s2">                 resp = conn.urlopen(</span>
-<span class="g g-Whitespace">    </span><span class="mi">441</span><span class="s2">                     method=request.method,</span>
-<span class="g g-Whitespace">    </span><span class="mi">442</span><span class="s2">                     url=url,</span>
-
-<span class="nn">c:\users\renb\pycharmprojects\weather_dashapp\dash\lib\site-packages\urllib3\connectionpool.py</span> in <span class="ni">urlopen</span><span class="nt">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, **response_kw)</span>
-<span class="g g-Whitespace">    </span><span class="mi">701</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">702</span><span class="s2">             # Make the request on the httplib connection object.</span>
-<span class="ne">--&gt; </span><span class="mi">703</span><span class="s2">             httplib_response = self._make_request(</span>
-<span class="g g-Whitespace">    </span><span class="mi">704</span><span class="s2">                 conn,</span>
-<span class="g g-Whitespace">    </span><span class="mi">705</span><span class="s2">                 method,</span>
-
-<span class="nn">c:\users\renb\pycharmprojects\weather_dashapp\dash\lib\site-packages\urllib3\connectionpool.py</span> in <span class="ni">_make_request</span><span class="nt">(self, conn, method, url, timeout, chunked, **httplib_request_kw)</span>
-<span class="g g-Whitespace">    </span><span class="mi">447</span><span class="s2">                     # Python 3 (including for exceptions like SystemExit).</span>
-<span class="g g-Whitespace">    </span><span class="mi">448</span><span class="s2">                     # Otherwise it looks like a bug in the code.</span>
-<span class="ne">--&gt; </span><span class="mi">449</span><span class="s2">                     six.raise_from(e, None)</span>
-<span class="g g-Whitespace">    </span><span class="mi">450</span><span class="s2">         except (SocketTimeout, BaseSSLError, SocketError) as e:</span>
-<span class="g g-Whitespace">    </span><span class="mi">451</span><span class="s2">             self._raise_timeout(err=e, url=url, timeout_value=read_timeout)</span>
-
-<span class="nn">c:\users\renb\pycharmprojects\weather_dashapp\dash\lib\site-packages\urllib3\packages\six.py</span> in <span class="ni">raise_from</span><span class="nt">(value, from_value)</span>
-
-<span class="nn">c:\users\renb\pycharmprojects\weather_dashapp\dash\lib\site-packages\urllib3\connectionpool.py</span> in <span class="ni">_make_request</span><span class="nt">(self, conn, method, url, timeout, chunked, **httplib_request_kw)</span>
-<span class="g g-Whitespace">    </span><span class="mi">442</span><span class="s2">                 # Python 3</span>
-<span class="g g-Whitespace">    </span><span class="mi">443</span><span class="s2">                 try:</span>
-<span class="ne">--&gt; </span><span class="mi">444</span><span class="s2">                     httplib_response = conn.getresponse()</span>
-<span class="g g-Whitespace">    </span><span class="mi">445</span><span class="s2">                 except BaseException as e:</span>
-<span class="g g-Whitespace">    </span><span class="mi">446</span><span class="s2">                     # Remove the TypeError from the exception chain in</span>
-
-<span class="nn">~\AppData\Local\Programs\Python\Python39\lib\http\client.py</span> in <span class="ni">getresponse</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1347</span><span class="s2">         try:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1348</span><span class="s2">             try:</span>
-<span class="ne">-&gt; </span><span class="mi">1349</span><span class="s2">                 response.begin()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1350</span><span class="s2">             except ConnectionError:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1351</span><span class="s2">                 self.close()</span>
-
-<span class="nn">~\AppData\Local\Programs\Python\Python39\lib\http\client.py</span> in <span class="ni">begin</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">314</span><span class="s2">         # read until we get a non-100 response</span>
-<span class="g g-Whitespace">    </span><span class="mi">315</span><span class="s2">         while True:</span>
-<span class="ne">--&gt; </span><span class="mi">316</span><span class="s2">             version, status, reason = self._read_status()</span>
-<span class="g g-Whitespace">    </span><span class="mi">317</span><span class="s2">             if status != CONTINUE:</span>
-<span class="g g-Whitespace">    </span><span class="mi">318</span><span class="s2">                 break</span>
-
-<span class="nn">~\AppData\Local\Programs\Python\Python39\lib\http\client.py</span> in <span class="ni">_read_status</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">275</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">276</span><span class="s2">     def _read_status(self):</span>
-<span class="ne">--&gt; </span><span class="mi">277</span><span class="s2">         line = str(self.fp.readline(_MAXLINE + 1), &quot;iso-8859-1&quot;)</span>
-<span class="g g-Whitespace">    </span><span class="mi">278</span><span class="s2">         if len(line) &gt; _MAXLINE:</span>
-<span class="g g-Whitespace">    </span><span class="mi">279</span><span class="s2">             raise LineTooLong(&quot;status line&quot;)</span>
-
-<span class="nn">~\AppData\Local\Programs\Python\Python39\lib\socket.py</span> in <span class="ni">readinto</span><span class="nt">(self, b)</span>
-<span class="g g-Whitespace">    </span><span class="mi">702</span><span class="s2">         while True:</span>
-<span class="g g-Whitespace">    </span><span class="mi">703</span><span class="s2">             try:</span>
-<span class="ne">--&gt; </span><span class="mi">704</span><span class="s2">                 return self._sock.recv_into(b)</span>
-<span class="g g-Whitespace">    </span><span class="mi">705</span><span class="s2">             except timeout:</span>
-<span class="g g-Whitespace">    </span><span class="mi">706</span><span class="s2">                 self._timeout_occurred = True</span>
-
-<span class="nn">~\AppData\Local\Programs\Python\Python39\lib\ssl.py</span> in <span class="ni">recv_into</span><span class="nt">(self, buffer, nbytes, flags)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1239</span><span class="s2">                   &quot;non-zero flags not allowed in calls to recv_into() on </span><span class="si">%s</span><span class="s2">&quot; %</span>
-<span class="g g-Whitespace">   </span><span class="mi">1240</span><span class="s2">                   self.__class__)</span>
-<span class="ne">-&gt; </span><span class="mi">1241</span><span class="s2">             return self.read(nbytes, buffer)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1242</span><span class="s2">         else:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1243</span><span class="s2">             return super().recv_into(buffer, nbytes, flags)</span>
-
-<span class="nn">~\AppData\Local\Programs\Python\Python39\lib\ssl.py</span> in <span class="ni">read</span><span class="nt">(self, len, buffer)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1097</span><span class="s2">         try:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1098</span><span class="s2">             if buffer is not None:</span>
-<span class="ne">-&gt; </span><span class="mi">1099</span><span class="s2">                 return self._sslobj.read(len, buffer)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1100</span><span class="s2">             else:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1101</span><span class="s2">                 return self._sslobj.read(len)</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
@@ -1203,12 +1137,12 @@
       <th>0</th>
       <td>9</td>
       <td>15</td>
-      <td>rain</td>
-      <td>1</td>
-      <td>3</td>
-      <td>91</td>
-      <td>lightrainnight</td>
-      <td>2022-02-02 15:00:00</td>
+      <td>none</td>
+      <td>0</td>
+      <td>5</td>
+      <td>50</td>
+      <td>cloudyday</td>
+      <td>2022-02-03 03:00:00</td>
       <td>NE</td>
       <td>3</td>
       <td>121.4667</td>
@@ -1219,13 +1153,13 @@
       <th>1</th>
       <td>9</td>
       <td>15</td>
-      <td>rain</td>
-      <td>2</td>
-      <td>3</td>
-      <td>86</td>
-      <td>lightrainnight</td>
-      <td>2022-02-02 18:00:00</td>
-      <td>N</td>
+      <td>none</td>
+      <td>0</td>
+      <td>5</td>
+      <td>55</td>
+      <td>cloudyday</td>
+      <td>2022-02-03 06:00:00</td>
+      <td>NE</td>
       <td>3</td>
       <td>121.4667</td>
       <td>31.1667</td>
@@ -1235,12 +1169,12 @@
       <th>2</th>
       <td>9</td>
       <td>15</td>
-      <td>rain</td>
-      <td>2</td>
-      <td>3</td>
-      <td>80</td>
-      <td>lightrainnight</td>
-      <td>2022-02-02 21:00:00</td>
+      <td>none</td>
+      <td>1</td>
+      <td>4</td>
+      <td>73</td>
+      <td>cloudyday</td>
+      <td>2022-02-03 09:00:00</td>
       <td>NE</td>
       <td>3</td>
       <td>121.4667</td>
@@ -1252,11 +1186,11 @@
       <td>9</td>
       <td>15</td>
       <td>rain</td>
-      <td>2</td>
+      <td>1</td>
       <td>4</td>
-      <td>68</td>
-      <td>lightrainday</td>
-      <td>2022-02-03 00:00:00</td>
+      <td>83</td>
+      <td>lightrainnight</td>
+      <td>2022-02-03 12:00:00</td>
       <td>NE</td>
       <td>3</td>
       <td>121.4667</td>
@@ -1265,16 +1199,16 @@
     </tr>
     <tr>
       <th>4</th>
-      <td>8</td>
+      <td>9</td>
       <td>15</td>
-      <td>none</td>
-      <td>2</td>
-      <td>5</td>
-      <td>54</td>
-      <td>cloudyday</td>
-      <td>2022-02-03 03:00:00</td>
+      <td>rain</td>
+      <td>1</td>
+      <td>4</td>
+      <td>69</td>
+      <td>lightrainnight</td>
+      <td>2022-02-03 15:00:00</td>
       <td>NE</td>
-      <td>3</td>
+      <td>2</td>
       <td>121.4667</td>
       <td>31.1667</td>
       <td>Shanghai</td>
@@ -1282,6 +1216,12 @@
   </tbody>
 </table>
 </div></div></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>小结<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>我们可以通过简单的循环来获取多个城市的天气信息，但是性能不佳。</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -1316,10 +1256,10 @@
             <p class="prev-next-title">连接数据库SQLite</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="multi_cities_async.html" title="next page">
+    <a class='right-next' id="next-link" href="multi_cities_async_zh.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title">采用异步Async</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
